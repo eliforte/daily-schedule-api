@@ -15,7 +15,7 @@ export default abstract class Model<T> {
     return this.document.find();
   }
 
-  public async findOne(id: string): Promise<T | null> {
+  public async findById(id: string): Promise<T | null> {
     return this.document.findById(id);
   }
 

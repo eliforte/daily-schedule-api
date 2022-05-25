@@ -12,7 +12,7 @@ export default abstract class Service<T> {
 
   public abstract findAll(): Promise<T[]>;
 
-  public abstract findOne(id: string): Promise<T | null>;
+  public abstract findById(id: string): Promise<T | null>;
 
   public abstract update(id: string, infos: T): Promise<T | null>;
 
