@@ -4,5 +4,5 @@ export interface ITaks {
   description: string;
   status: string;
   createdAt: Date;
-  updatedAt: Date;
+  updatedAt: Date | undefined;
 }
