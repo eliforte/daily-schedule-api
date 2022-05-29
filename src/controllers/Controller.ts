@@ -28,7 +28,7 @@ export default abstract class Controller<T> {
 
   public findOne = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {
-      const result = await this._service.findOne(req.params.id);
+      const result = await this._service.findById(req.params.id);
       res.status(200).json(result);
     } catch (error) {
       next(error);
