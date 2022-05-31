@@ -17,7 +17,7 @@ export default abstract class Controller<T> {
     }
   };
 
-  public findAll = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
+  public findAll = async (_req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {
       const result = await this._service.findAll();
       res.status(200).json(result);

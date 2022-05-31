@@ -4,15 +4,15 @@ import { IToken } from '../interfaces/IUser';
 import { MISSING_TOKEN, TOKEN_INVALID } from '../errors';
 
 export default class Auth {
-  public static createToken(payload: IToken): string {
+  public static createToken = (payload: IToken): string => {
     const options: SignOptions = {
       expiresIn: '1h',
     };
     const token = jwt.sign(payload, process.env.SECRET, options);
     return token;
-  }
+  };
 
-  public static verifyToken = async (req: Req, res: Res, next: NextFunction): Promise<void> => {
+  public static verifyToken = async (req: Req, _res: Res, next: NextFunction): Promise<void> => {
     try {
       const token = req.headers.authorization?.split(' ')[1];
       if (!token) throw MISSING_TOKEN;
