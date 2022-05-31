@@ -8,7 +8,7 @@ export default class Auth {
     const options: SignOptions = {
       expiresIn: '1h',
     };
-    const token = jwt.sign(payload, process.env.SECRET, options);
+    const token = jwt.sign(payload, `${process.env.SECRET}`, options);
     return token;
   };
 
@@ -16,7 +16,7 @@ export default class Auth {
     try {
       const token = req.headers.authorization?.split(' ')[1];
       if (!token) throw MISSING_TOKEN;
-      const decoded = jwt.verify(token, process.env.SECRET) as IToken;
+      const decoded = jwt.verify(token, `${process.env.SECRET}`) as IToken;
       if (!decoded) throw TOKEN_INVALID;
       req.user = decoded;
       next();
