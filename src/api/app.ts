@@ -17,4 +17,8 @@ export default class App {
   public newRoutes(router: express.Router): void {
     this._app.use(router);
   }
+
+  public ErrorHandler(middleware: express.ErrorRequestHandler): void {
+    this._app.use(middleware);
+  }
 }
