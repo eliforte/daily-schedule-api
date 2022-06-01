@@ -33,7 +33,6 @@ export default class UserRoutes extends RouteGenerator<IUser> {
     );
     this._router.post(
       this._path,
-      Auth.verifyToken,
       this._validate.validateReqBody,
       this._controller.create,
     );
