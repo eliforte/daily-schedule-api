@@ -12,11 +12,12 @@ const app = new App();
 const databaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.MONGODB_URL
   : process.env.MONGODB_DEV_URL;
-mongoose.connect(databaseUrl);
+
+mongoose.connect(`${databaseUrl}`);
 
 app.newRoutes(new UserRoutes().router);
 app.newRoutes(new LoginRoutes().router);
 app.newRoutes(new TaskRoutes().router);
 app.ErrorHandler(ErrorHandler.handler);
 
-app.server(process.env.PORT || 3000);
+app.server(process.env.PORT || 5050);
