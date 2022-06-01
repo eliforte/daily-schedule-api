@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node src/api/server.ts",
-    "build": "tsc -p . --outDir build/api/server.js",
-    "start": "cross-env NODE_ENV=production node build/api/server.ts"
+    "build": "tsc",
+    "start": "cross-env NODE_ENV=production node build/api/server.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
