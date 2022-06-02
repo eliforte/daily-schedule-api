@@ -3,7 +3,8 @@ import Model from './Model';
 import { ITaks } from '../utils/interfaces/ITaks';
 
 const TaskSchema = new mongoose.Schema<ITaks>({
-  user: { type: String, required: true },
+  userId: { type: String, required: true },
+  title: { type: String, required: true },
   description: { type: String, required: true },
   status: { type: String, required: true },
   createdAt: { type: Date, required: true },

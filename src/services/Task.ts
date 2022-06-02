@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { isValidObjectId } from 'mongoose';
 import Model from '../models/Model';
 import TaskModel from '../models/Task';
