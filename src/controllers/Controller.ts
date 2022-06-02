@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Request as Req, Response as Res, NextFunction } from 'express';
 import Service from '../services/Service';
 
@@ -8,14 +9,7 @@ export default abstract class Controller<T> {
     this._service = service;
   }
 
-  public create = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
-    try {
-      const result = await this._service.create(req.body);
-      res.status(201).json(result);
-    } catch (error) {
-      next(error);
-    }
-  };
+  public abstract create(req: Req, res: Res, next: NextFunction): Promise<typeof res | void>;
 
   public findAll = async (_req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {

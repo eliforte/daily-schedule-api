@@ -29,6 +29,7 @@
          "no-underscore-dangle": "off"
     },
     "settings": {
+        "eslint no-param-reassign": ["error", { "props": false }],
         "import/resolver": {
           "node": {
             "extensions": [".js", ".jsx", ".ts", ".tsx"]

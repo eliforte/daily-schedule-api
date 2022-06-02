@@ -11,7 +11,14 @@ export default class TaskService extends Service<ITaks> {
   }
 
   public create = async (task: ITaks): Promise<ITaks> => {
-    const newTask = await this._model.create(task);
+    const setTaskInfos = {
+      ...task,
+      status: 'in progress',
+      createdAt: new Date(),
+      updatedAt: null,
+    } as ITaks;
+
+    const newTask = await this._model.create(setTaskInfos);
     return newTask;
   };
 
@@ -25,6 +32,7 @@ export default class TaskService extends Service<ITaks> {
 
   public update = async (id: string, task: ITaks): Promise<ITaks | null> => {
     if (!isValidObjectId(id)) throw TASK_NOT_EXIST;
+    task.updatedAt = new Date();
     const updatedTask = await this._model.update(id, task);
     return updatedTask;
   };

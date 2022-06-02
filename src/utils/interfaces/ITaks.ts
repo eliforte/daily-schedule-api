@@ -1,8 +1,9 @@
 export interface ITaks {
   _id?: string;
-  user: string;
+  userId: string | undefined;
+  title: string;
   description: string;
   status: string;
   createdAt: Date;
-  updatedAt: Date | undefined;
+  updatedAt: Date | null;
 }
