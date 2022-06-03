@@ -8,7 +8,7 @@ const TaskSchema = new mongoose.Schema<ITaks>({
   description: { type: String, required: true },
   status: { type: String, required: true },
   createdAt: { type: Date, required: true },
-  updatedAt: { type: Date, required: true },
+  updatedAt: { type: Date, required: false },
 }, { versionKey: false });
 
 export default class TaskModel extends Model<ITaks> {

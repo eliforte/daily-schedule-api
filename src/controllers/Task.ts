@@ -12,9 +12,9 @@ export default class TaskController extends Controller<ITaks> {
   public create = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {
       const { title, description } = req.body;
-      const { id } = req.user;
-      const result = await this._service.create({ title, description, userId: id } as ITaks);
-      res.status(201).json(result);
+      const { _id } = req.user;
+      const result = await this._service.create({ title, description, userId: _id } as ITaks);
+      res.status(201).json({ result, message: 'successfully updated' });
     } catch (error) {
       next(error);
     }

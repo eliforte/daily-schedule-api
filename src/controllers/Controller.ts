@@ -32,7 +32,7 @@ export default abstract class Controller<T> {
   public update = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {
       const result = await this._service.update(req.params.id, req.body);
-      res.status(200).json(result);
+      res.status(200).json({ result, message: 'successfully updated' });
     } catch (error) {
       next(error);
     }
@@ -41,7 +41,7 @@ export default abstract class Controller<T> {
   public delete = async (req: Req, res: Res, next: NextFunction): Promise<typeof res | void> => {
     try {
       await this._service.delete(req.params.id);
-      res.status(204).json({});
+      res.status(204).json({ message: 'successfully deleted' });
     } catch (error) {
       next(error);
     }
