@@ -13,7 +13,7 @@ const databaseUrl = process.env.NODE_ENV === 'production'
   : process.env.MONGODB_DEV_URL;
 
 mongoose.connect(`${databaseUrl}`);
-const corsOptions = { origin: [`${process.env.PROD_CLIENT}`, `${process.env.DEV_CLIENT}`] };
+const corsOptions = { origin: ['*'] };
 
 app.useCors(corsOptions);
 app.newRoutes(new UserRoutes().router);
