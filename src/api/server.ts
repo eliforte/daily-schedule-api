@@ -7,14 +7,15 @@ import TaskRoutes from '../routes/Task';
 import ErrorHandler from '../middlewares/error';
 
 dotenv.config();
-
 const app = new App();
 const databaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.MONGODB_URL
   : process.env.MONGODB_DEV_URL;
 
 mongoose.connect(`${databaseUrl}`);
+const corsOptions = { origin: [`${process.env.PROD_CLIENT}`, `${process.env.DEV_CLIENT}`] };
 
+app.useCors(corsOptions);
 app.newRoutes(new UserRoutes().router);
 app.newRoutes(new LoginRoutes().router);
 app.newRoutes(new TaskRoutes().router);

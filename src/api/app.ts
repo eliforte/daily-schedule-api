@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 export default class App {
   public _app: express.Application;
@@ -20,5 +21,9 @@ export default class App {
 
   public ErrorHandler(middleware: express.ErrorRequestHandler): void {
     this._app.use(middleware);
+  }
+
+  public useCors(options: cors.CorsOptions): void {
+    this._app.use(cors(options));
   }
 }
