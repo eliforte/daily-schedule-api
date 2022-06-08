@@ -14,7 +14,7 @@ export default class TaskController extends Controller<ITaks> {
       const { title, description } = req.body;
       const { _id } = req.user;
       const result = await this._service.create({ title, description, userId: _id } as ITaks);
-      res.status(201).json({ result, message: 'successfully updated' });
+      res.status(201).json({ ...result, message: 'successfully updated' });
     } catch (error) {
       next(error);
     }

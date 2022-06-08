@@ -12,7 +12,7 @@ export default class LoginController {
     try {
       const { email, password } = req.body;
       const result = await this._service.login(email, password);
-      res.status(200).json(result);
+      res.status(200).json({ ...result });
     } catch (error) {
       next(error);
     }
