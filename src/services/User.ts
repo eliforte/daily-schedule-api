@@ -3,7 +3,7 @@ import Model from '../models/Model';
 import UserModel from '../models/User';
 import Service from './Service';
 import Auth from '../utils/auth/Token';
-import { IUser } from '../utils/interfaces/IUser';
+import { IUser, IUserServiceCreate } from '../utils/interfaces/IUser';
 import { USER_EXIST } from '../utils/errors';
 
 export default class UserService extends Service<IUser> {
@@ -11,7 +11,7 @@ export default class UserService extends Service<IUser> {
     super(model);
   }
 
-  public create = async (user: IUser): Promise<string> => {
+  public create = async (user: IUser): Promise<IUserServiceCreate> => {
     const { name, email, password } = user;
 
     const userExist = await this._model.findByEmail(email);
@@ -23,7 +23,11 @@ export default class UserService extends Service<IUser> {
     const newUser = await this._model.create({ name, email, password: hash });
     const token = Auth.createToken({ _id: newUser._id, name, email });
 
-    return token;
+    return {
+      _id: newUser._id,
+      name,
+      token,
+    };
   };
 
   public findAll = async (): Promise<IUser[]> => this._model.findAll();

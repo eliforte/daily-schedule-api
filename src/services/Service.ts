@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Model from '../models/Model';
+import { IUserServiceCreate } from '../utils/interfaces/IUser';
 
 export default abstract class Service<T> {
   protected _model: Model<T>;
@@ -8,7 +9,7 @@ export default abstract class Service<T> {
     this._model = model;
   }
 
-  public abstract create(infos: T): Promise<T | string>;
+  public abstract create(infos: T): Promise<T | IUserServiceCreate>;
 
   public abstract findAll(): Promise<T[]>;
 

@@ -10,3 +10,9 @@ export interface IToken {
   name: string;
   email: string;
 }
+
+export interface IUserServiceCreate {
+  _id?: string;
+  name: string;
+  token: string;
+}
