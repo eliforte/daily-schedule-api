@@ -14,7 +14,7 @@ const databaseUrl = process.env.NODE_ENV === 'production'
 
 mongoose.connect(`${databaseUrl}`);
 const corsOptions = { origin: [
-  `${process.env.PROD_CLIENT}`, ${process.env.DEV_CLIENT}, 'http://localhost:9000'],
+  `${process.env.PROD_CLIENT}`, `${process.env.DEV_CLIENT}`, 'http://localhost:9000']
 };
 
 app.useCors(corsOptions);
