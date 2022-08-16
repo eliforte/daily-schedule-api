@@ -13,7 +13,7 @@ export const SCHEMAUser = Joi.object({
 
 export const SCHEMATask = Joi.object({
   title: Joi.string().required(),
-  description: Joi.string().required(),
+  description: Joi.string(),
 });
 
 export const SCHEMAUpdateTask = Joi.object({
