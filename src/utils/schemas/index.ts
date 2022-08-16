@@ -19,4 +19,5 @@ export const SCHEMATask = Joi.object({
 export const SCHEMAUpdateTask = Joi.object({
   title: Joi.string(),
   description: Joi.string(),
+  status: Joi.string(),
 });
