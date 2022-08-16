@@ -12,6 +12,8 @@ export default class TaskRoutes extends RouteGenerator<ITaks> {
 
   private _validate: Validate;
 
+  private _validateUpdateTask: ValidateUpdateTask;
+
   constructor(
     controller: Controller<ITaks> = new TaskController(),
     validate: Validate = new ValidadeTask(),
