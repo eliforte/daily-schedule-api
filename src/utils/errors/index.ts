@@ -2,7 +2,7 @@ import NewError from './NewError';
 
 export const TOKEN_INVALID = new NewError(401, 'Invalid token');
 
-export const MISSING_TOKEN = new NewError(401, 'Token not found');
+export const MISSING_TOKEN = new NewError(401, 'User unauthorized');
 
 export const USER_NOT_EXIST = new NewError(404, 'User not exist');
 
